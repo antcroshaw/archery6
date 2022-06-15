@@ -13,7 +13,7 @@ class HandicapController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index($categoryId) {
-        return view('Handicaps.index', ['handicaps' => Handicap::all()->where('categoryId', '===', $categoryId)
+        return view('categories.show', ['handicaps' => Handicap::all()->where('categoryId', '===', $categoryId)
         ]);
     }
 
