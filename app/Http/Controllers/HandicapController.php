@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Handicap;
+use App\Models\Scores;
 use Illuminate\Http\Request;
 
 class HandicapController extends Controller
@@ -47,8 +48,10 @@ class HandicapController extends Controller
 
 
          public function show(Handicap $handicap) {
+             $scores = Scores::all()->where('handicapId', '===',$handicap->id);
              return view('handicaps.show', [
-                 'handicap' => $handicap
+                 'handicap' => $handicap,
+                 'scores' => $scores
              ]);}
 
 
