@@ -1,4 +1,4 @@
-<?php
+<?php /** @noinspection PhpUnreachableStatementInspection */
 
 namespace App\Http\Controllers;
 
@@ -44,10 +44,13 @@ class HandicapController extends Controller
      * @param  \App\Models\Handicap  $handicap
      * @return \Illuminate\Http\Response
      */
-    public function show(Handicap $handicap)
-    {
-        //
-    }
+
+
+         public function show(Handicap $handicap) {
+             return view('handicaps.show', [
+                 'handicap' => $handicap
+             ]);}
+
 
     /**
      * Show the form for editing the specified resource.

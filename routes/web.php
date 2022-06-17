@@ -21,3 +21,4 @@ Route::get('/', function () {
 
 Route::get('/categories', [CategoryController::class, 'index']);
 Route::get('/categories/{categoryId}', [HandicapController::class, 'index']);
+Route::get('/handicaps/{handicap}', [HandicapController::class, 'show']);
