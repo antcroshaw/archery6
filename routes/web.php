@@ -15,10 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/', [CategoryController::class, 'index']);
+Route::get('/handicaps/create',[HandicapController::class, 'create'])->name('handicaps.create');
 Route::get('/categories', [CategoryController::class, 'index']);
 Route::get('/categories/{categoryId}', [HandicapController::class, 'index']);
 Route::get('/handicaps/{handicap}', [HandicapController::class, 'show']);
