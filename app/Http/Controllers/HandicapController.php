@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Handicap;
 use App\Models\Scores;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class HandicapController extends Controller
 {
@@ -34,9 +35,16 @@ class HandicapController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request) {
+        $formFields = $request->validate([
+            'name' => 'required',
+            'categoryId' => 'required',
+        ]);
+
+        Handicap::create($formFields);
+
+        return redirect('/categories/');
+
     }
 
     /**
