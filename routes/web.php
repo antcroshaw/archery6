@@ -21,3 +21,4 @@ Route::post('/handicaps/store',[HandicapController::class, 'store'])->name('hand
 Route::get('/categories', [CategoryController::class, 'index']);
 Route::get('/categories/{categoryId}', [HandicapController::class, 'index']);
 Route::get('/handicaps/{handicap}', [HandicapController::class, 'show']);
+Route::delete('/handicaps/{handicap}', [HandicapController::class, 'destroy']);

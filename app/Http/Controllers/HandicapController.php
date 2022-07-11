@@ -94,6 +94,7 @@ class HandicapController extends Controller
      */
     public function destroy(Handicap $handicap)
     {
-        //
+        $handicap->delete();
+       return back();
     }
 }
