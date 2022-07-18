@@ -69,9 +69,10 @@ class HandicapController extends Controller
      * @param  \App\Models\Handicap  $handicap
      * @return \Illuminate\Http\Response
      */
+    // Show Edit Form
     public function edit(Handicap $handicap)
     {
-        //
+        return view('handicaps.edit', ['handicap' => $handicap]);
     }
 
     /**
@@ -83,7 +84,22 @@ class HandicapController extends Controller
      */
     public function update(Request $request, Handicap $handicap)
     {
-        //
+        // Make sure logged in user is owner
+//        if($listing->user_id != auth()->id()) {
+//            abort(403, 'Unauthorized Action');
+//        }
+
+        $formFields = $request->validate([
+            'name' => 'required',
+            'categoryId' => 'required'
+        ]);
+
+
+
+        $handicap->update($formFields);
+
+        return back()->with('message', 'handicap updated successfully!');
+
     }
 
     /**

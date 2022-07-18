@@ -22,3 +22,5 @@ Route::get('/categories', [CategoryController::class, 'index']);
 Route::get('/categories/{categoryId}', [HandicapController::class, 'index']);
 Route::get('/handicaps/{handicap}', [HandicapController::class, 'show']);
 Route::delete('/handicaps/{handicap}', [HandicapController::class, 'destroy']);
+Route::get('/handicaps/{handicap}/edit', [HandicapController::class, 'edit'])->name('handicaps.edit');
+Route::put('/handicaps/{handicap}', [HandicapController::class, 'update']);
